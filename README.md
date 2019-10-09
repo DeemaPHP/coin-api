@@ -24,27 +24,27 @@ The example application is a api for coinmarketcup.
 
 - Authenticate users via JWT (login/signup pages + logout button on settings page)
 - CRU\* users (sign up & settings page - no deleting required)
-- CRUD Articles
-- CR\*D Comments on articles (no updating required)
-- GET and display paginated lists of articles
-- Favorite articles
+- CRUD Cryptocurrency
+- CR\*D Comments on cryptocurrency (no updating required)
+- GET and display paginated lists of cryptocurrency
+- Favorite cryptocurrency
 - Follow other users
 
 **The general page breakdown looks like this:**
 
 - Home page (URL: /#/ )
   - List of tags
-  - List of articles pulled from either Feed, Global, or by Tag
-  - Pagination for list of articles
+  - List of cryptocurrency pulled from either Feed, Global, or by Tag
+  - Pagination for list of cryptocurrency
 - Sign in/Sign up pages (URL: /#/login, /#/register )
   - Use JWT (store the token in localStorage)
 - Settings page (URL: /#/settings )
-- Editor page to create/edit articles (URL: /#/editor, /#/editor/article-slug-here )
-- Article page (URL: /#/article/article-slug-here )
-  - Delete article button (only shown to article's author)
+- Editor page to create/edit cryptocurrency (URL: /#/editor, /#/editor/cryptocurrency-slug-here )
+- Article page (URL: /#/cryptocurrency/cryptocurrency-slug-here )
+  - Delete cryptocurrency button (only shown to cryptocurrency's author)
   - Render markdown from server client side
   - Comments section at bottom of page
   - Delete comment button (only shown to comment's author)
 - Profile page (URL: /#/@username, /#/@username/favorites )
   - Show basic user info
-  - List of articles populated from author's created articles or author's favorited articles
+  - List of cryptocurrency populated from author's created cryptocurrency or author's favorited cryptocurrency

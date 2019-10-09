@@ -1,5 +1,5 @@
-import article from './reducers/article';
-import articleList from './reducers/articleList';
+import cryptocurrency from './reducers/cryptocurrency';
+import cryptocurrencyList from './reducers/cryptocurrencyList';
 import auth from './reducers/auth';
 import { combineReducers } from 'redux';
 import common from './reducers/common';
@@ -10,8 +10,8 @@ import settings from './reducers/settings';
 import { routerReducer } from 'react-router-redux';
 
 export default combineReducers({
-  article,
-  articleList,
+  cryptocurrency,
+  cryptocurrencyList,
   auth,
   common,
   editor,

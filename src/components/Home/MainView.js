@@ -1,21 +1,27 @@
-import ArticleList from '../ArticleList';
-import React from 'react';
-import agent from '../../agent';
-import { connect } from 'react-redux';
-import { CHANGE_TAB } from '../../constants/actionTypes';
+import ArticleList from "../ArticleList";
+import React from "react";
+import agent from "../../agent";
+import { connect } from "react-redux";
+import { CHANGE_TAB } from "../../constants/actionTypes";
 
 const YourFeedTab = props => {
   if (props.token) {
     const clickHandler = ev => {
       ev.preventDefault();
-      props.onTabClick('feed', agent.Articles.feed, agent.Articles.feed());
-    }
+      props.onTabClick(
+        "feed",
+        agent.Cryptocurrency.feed,
+        agent.Cryptocurrency.feed()
+      );
+    };
 
     return (
       <li className="nav-item">
-        <a  href=""
-            className={ props.tab === 'feed' ? 'nav-link active' : 'nav-link' }
-            onClick={clickHandler}>
+        <a
+          href=""
+          className={props.tab === "feed" ? "nav-link active" : "nav-link"}
+          onClick={clickHandler}
+        >
           Your Feed
         </a>
       </li>
@@ -27,14 +33,19 @@ const YourFeedTab = props => {
 const GlobalFeedTab = props => {
   const clickHandler = ev => {
     ev.preventDefault();
-    props.onTabClick('all', agent.Articles.all, agent.Articles.all());
+    props.onTabClick(
+      "all",
+      agent.Cryptocurrency.all,
+      agent.Cryptocurrency.all()
+    );
   };
   return (
     <li className="nav-item">
       <a
         href=""
-        className={ props.tab === 'all' ? 'nav-link active' : 'nav-link' }
-        onClick={clickHandler}>
+        className={props.tab === "all" ? "nav-link active" : "nav-link"}
+        onClick={clickHandler}
+      >
         Global Feed
       </a>
     </li>
@@ -56,13 +67,14 @@ const TagFilterTab = props => {
 };
 
 const mapStateToProps = state => ({
-  ...state.articleList,
+  ...state.cryptocurrencyList,
   tags: state.home.tags,
   token: state.common.token
 });
 
 const mapDispatchToProps = dispatch => ({
-  onTabClick: (tab, pager, payload) => dispatch({ type: CHANGE_TAB, tab, pager, payload })
+  onTabClick: (tab, pager, payload) =>
+    dispatch({ type: CHANGE_TAB, tab, pager, payload })
 });
 
 const MainView = props => {
@@ -70,27 +82,30 @@ const MainView = props => {
     <div className="col-md-9">
       <div className="feed-toggle">
         <ul className="nav nav-pills outline-active">
-
           <YourFeedTab
             token={props.token}
             tab={props.tab}
-            onTabClick={props.onTabClick} />
+            onTabClick={props.onTabClick}
+          />
 
           <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
 
           <TagFilterTab tag={props.tag} />
-
         </ul>
       </div>
 
       <ArticleList
         pager={props.pager}
-        articles={props.articles}
+        cryptocurrency={props.cryptocurrency}
         loading={props.loading}
-        articlesCount={props.articlesCount}
-        currentPage={props.currentPage} />
+        cryptocurrencyCount={props.cryptocurrencyCount}
+        currentPage={props.currentPage}
+      />
     </div>
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainView);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainView);

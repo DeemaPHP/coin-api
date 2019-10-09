@@ -14,13 +14,13 @@ const Promise = global.Promise;
 
 const mapStateToProps = state => ({
   ...state.home,
-  appName: state.common.appName,
-  token: state.common.token
+  appName: state.common.appName
+  // token: state.common.token
 });
 
 const mapDispatchToProps = dispatch => ({
-  onClickTag: (tag, pager, payload) =>
-    dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
+  // onClickTag: (tag, pager, payload) =>
+  //   dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
   onLoad: (tab, pager, payload) =>
     dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
   onUnload: () => dispatch({ type: HOME_PAGE_UNLOADED })
@@ -28,15 +28,17 @@ const mapDispatchToProps = dispatch => ({
 
 class Home extends React.Component {
   componentWillMount() {
-    const tab = this.props.token ? "feed" : "all";
-    const articlesPromise = this.props.token
-      ? agent.Articles.feed
-      : agent.Articles.all;
+    // const tab = this.props.token ? "feed" : "all";
+    // const cryptocurrencyPromise = this.props.token
+    //   ? agent.Cryptocurrency.feed
+    //   : agent.Cryptocurrency.all;
+    const tab = "listing";
+    const cryptocurrencyPromise = agent.Cryptocurrency.listing;
 
     this.props.onLoad(
       tab,
-      articlesPromise,
-      Promise.all([agent.Tags.getAll(), articlesPromise()])
+      cryptocurrencyPromise,
+      Promise.all([agent.Cryptocurrency.get(), cryptocurrencyPromise()])
     );
   }
 

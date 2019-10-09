@@ -1,36 +1,29 @@
-import ArticlePreview from './ArticlePreview';
-import ListPagination from './ListPagination';
-import React from 'react';
+import ArticlePreview from "./ArticlePreview";
+import ListPagination from "./ListPagination";
+import React from "react";
 
 const ArticleList = props => {
-  if (!props.articles) {
-    return (
-      <div className="article-preview">Loading...</div>
-    );
+  if (!props.cryptocurrency) {
+    return <div className="cryptocurrency-preview">Loading...</div>;
   }
 
-  if (props.articles.length === 0) {
+  if (props.cryptocurrency.length === 0) {
     return (
-      <div className="article-preview">
-        No articles are here... yet.
-      </div>
+      <div className="cryptocurrency-preview">No cryptocurrency are here... yet.</div>
     );
   }
 
   return (
     <div>
-      {
-        props.articles.map(article => {
-          return (
-            <ArticlePreview article={article} key={article.slug} />
-          );
-        })
-      }
+      {props.cryptocurrency.map(cryptocurrency => {
+        return <ArticlePreview cryptocurrency={cryptocurrency} key={cryptocurrency.slug} />;
+      })}
 
       <ListPagination
         pager={props.pager}
-        articlesCount={props.articlesCount}
-        currentPage={props.currentPage} />
+        cryptocurrencyCount={props.cryptocurrencyCount}
+        currentPage={props.currentPage}
+      />
     </div>
   );
 };

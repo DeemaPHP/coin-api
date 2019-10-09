@@ -1,6 +1,6 @@
 import {
-  ARTICLE_FAVORITED,
-  ARTICLE_UNFAVORITED,
+  CRYPTOCURRENCY_FAVORITED,
+  CRYPTOCURRENCY_UNFAVORITED,
   SET_PAGE,
   APPLY_TAG_FILTER,
   HOME_PAGE_LOADED,
@@ -10,38 +10,38 @@ import {
   PROFILE_PAGE_UNLOADED,
   PROFILE_FAVORITES_PAGE_LOADED,
   PROFILE_FAVORITES_PAGE_UNLOADED
-} from '../constants/actionTypes';
+} from "../constants/actionTypes";
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case ARTICLE_FAVORITED:
-    case ARTICLE_UNFAVORITED:
+    case CRYPTOCURRENCY_FAVORITED:
+    case CRYPTOCURRENCY_UNFAVORITED:
       return {
         ...state,
-        articles: state.articles.map(article => {
-          if (article.slug === action.payload.article.slug) {
+        cryptocurrency: state.cryptocurrency.map(cryptocurrency => {
+          if (cryptocurrency.slug === action.payload.cryptocurrency.slug) {
             return {
-              ...article,
-              favorited: action.payload.article.favorited,
-              favoritesCount: action.payload.article.favoritesCount
+              ...cryptocurrency,
+              favorited: action.payload.cryptocurrency.favorited,
+              favoritesCount: action.payload.cryptocurrency.favoritesCount
             };
           }
-          return article;
+          return cryptocurrency;
         })
       };
     case SET_PAGE:
       return {
         ...state,
-        articles: action.payload.articles,
-        articlesCount: action.payload.articlesCount,
+        cryptocurrency: action.payload.cryptocurrency,
+        cryptocurrencyCount: action.payload.cryptocurrencyCount,
         currentPage: action.page
       };
     case APPLY_TAG_FILTER:
       return {
         ...state,
         pager: action.pager,
-        articles: action.payload.articles,
-        articlesCount: action.payload.articlesCount,
+        cryptocurrency: action.payload.cryptocurrency,
+        cryptocurrencyCount: action.payload.cryptocurrencyCount,
         tab: null,
         tag: action.tag,
         currentPage: 0
@@ -51,8 +51,8 @@ export default (state = {}, action) => {
         ...state,
         pager: action.pager,
         tags: action.payload[0].tags,
-        articles: action.payload[1].articles,
-        articlesCount: action.payload[1].articlesCount,
+        cryptocurrency: action.payload[1].cryptocurrency,
+        cryptocurrencyCount: action.payload[1].cryptocurrencyCount,
         currentPage: 0,
         tab: action.tab
       };
@@ -62,8 +62,8 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        articles: action.payload.articles,
-        articlesCount: action.payload.articlesCount,
+        cryptocurrency: action.payload.cryptocurrency,
+        cryptocurrencyCount: action.payload.cryptocurrencyCount,
         tab: action.tab,
         currentPage: 0,
         tag: null
@@ -73,8 +73,8 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        articles: action.payload[1].articles,
-        articlesCount: action.payload[1].articlesCount,
+        cryptocurrency: action.payload[1].cryptocurrency,
+        cryptocurrencyCount: action.payload[1].cryptocurrencyCount,
         currentPage: 0
       };
     case PROFILE_PAGE_UNLOADED:
