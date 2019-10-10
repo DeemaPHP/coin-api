@@ -5,7 +5,7 @@ const superagent = superagentPromise(_superagent, global.Promise);
 
 // const API_ROOT = "https://conduit.productionready.io/api";
 // const API_ROOT = "https://pro-api.coinmarketcap.com/v1";
-const API_ROOT = "/data/";
+const API_ROOT = "/data";
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
