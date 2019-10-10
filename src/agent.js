@@ -79,7 +79,7 @@ const Cryptocurrency = {
       `/cryptocurrency?favorited=${encode(author)}&${limit(5, page)}`
     ),
   feed: () => requests.get("/cryptocurrency/info?id=1"),
-  get: slug => requests.get(`/cryptocurrency/${slug}`),
+  get: slug => requests.get(`/cryptocurrency/listings/latest`),
   unfavorite: slug => requests.del(`/cryptocurrency/${slug}/favorite`),
   update: cryptocurrency =>
     requests.put(`/cryptocurrency/${cryptocurrency.slug}`, {

@@ -6,11 +6,14 @@ import {
 } from "../constants/actionTypes";
 
 export default (state = {}, action) => {
+  // str = JSON.stringify(action);
+  // console.log(JSON.stringify(action.payload));
   switch (action.type) {
     case CRYPTOCURRENCY_PAGE_LOADED:
+      console.log("Payload: ", action.payload);
       return {
         ...state,
-        cryptocurrency: action.payload[0],
+        cryptocurrency: action.payload[0].data,
         comments: action.payload[1].comments
       };
     case CRYPTOCURRENCY_PAGE_UNLOADED:

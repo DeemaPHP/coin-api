@@ -55,7 +55,7 @@ class Home extends React.Component {
           <div className="row">
             <MainView />
 
-            <div className="col-md-3">
+            {/* <div className="col-md-3">
               <div className="sidebar">
                 <p>Popular Tags</p>
 
@@ -64,7 +64,7 @@ class Home extends React.Component {
                   onClickTag={this.props.onClickTag}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

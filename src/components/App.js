@@ -56,7 +56,6 @@ class App extends React.Component {
             appName={this.props.appName}
             currentUser={this.props.currentUser}
           />
-          <h3>Nts</h3>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />

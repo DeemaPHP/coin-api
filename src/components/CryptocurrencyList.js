@@ -14,10 +14,13 @@ const CryptocurrencyList = props => {
       </div>
     );
   }
-
+  console.log("This is props ----", Object.entries(props.cryptocurrency));
+  const cryptocurrencyArr = Object.values(props.cryptocurrency);
+  const cryptArr = Object.values(cryptocurrencyArr[1]);
+  console.log(cryptArr[0].name);
   return (
     <div>
-      {props.cryptocurrency.map(cryptocurrency => {
+      {cryptArr.map(cryptocurrency => {
         return (
           <CryptocurrencyPreview
             cryptocurrency={cryptocurrency}

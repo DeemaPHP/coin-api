@@ -25,9 +25,9 @@ const mapDispatchToProps = dispatch => ({
 
 const ArticlePreview = props => {
   const cryptocurrency = props.cryptocurrency;
-  const favoriteButtonClass = cryptocurrency.favorited
-    ? FAVORITED_CLASS
-    : NOT_FAVORITED_CLASS;
+  // const favoriteButtonClass = cryptocurrency.favorited
+  //   ? FAVORITED_CLASS
+  //   : NOT_FAVORITED_CLASS;
 
   const handleClick = ev => {
     ev.preventDefault();
@@ -38,40 +38,39 @@ const ArticlePreview = props => {
     }
   };
 
+  console.log(cryptocurrency.name);
+
   return (
-    <div className="cryptocurrency-preview">
-      <div className="cryptocurrency-meta">
-        <Link to={`/@${cryptocurrency.author.username}`}>
-          <img
-            src={cryptocurrency.author.image}
-            alt={cryptocurrency.author.username}
-          />
+    <div className="article-preview">
+      <div className="article-meta">
+        <Link to={`/@${cryptocurrency.name}`}>
+          <img src={cryptocurrency.logo} alt={cryptocurrency.slug} />
         </Link>
 
-        <div className="info">
-          <Link className="author" to={`/@${cryptocurrency.author.username}`}>
-            {cryptocurrency.author.username}
+        {/* <div className="info">
+          <Link className="website" to={`${cryptocurrency.urls}`}>
+            {cryptocurrency.urls}
           </Link>
           <span className="date">
-            {new Date(cryptocurrency.createdAt).toDateString()}
+            {new Date(cryptocurrency.date_added).toDateString()}
           </span>
-        </div>
+        </div> */}
 
-        <div className="pull-xs-right">
+        {/* <div className="pull-xs-right">
           <button className={favoriteButtonClass} onClick={handleClick}>
             <i className="ion-heart"></i> {cryptocurrency.favoritesCount}
           </button>
-        </div>
+        </div> */}
       </div>
 
       <Link
         to={`/cryptocurrency/${cryptocurrency.slug}`}
         className="preview-link"
       >
-        <h1>{cryptocurrency.title}</h1>
+        <h2>{cryptocurrency.name}</h2>
         <p>{cryptocurrency.description}</p>
         <span>Read more...</span>
-        <ul className="tag-list">
+        {/* <ul className="tag-list">
           {cryptocurrency.tagList.map(tag => {
             return (
               <li className="tag-default tag-pill tag-outline" key={tag}>
@@ -79,7 +78,7 @@ const ArticlePreview = props => {
               </li>
             );
           })}
-        </ul>
+        </ul> */}
       </Link>
     </div>
   );
