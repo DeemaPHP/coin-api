@@ -51,7 +51,7 @@ export default (state = {}, action) => {
         ...state,
         pager: action.pager,
         // tags: action.payload[0],
-        cryptocurrency: action.payload[1],
+        cryptocurrency: action.payload[0],
         cryptocurrencyCount: action.payload[1],
         currentPage: 0,
         tab: action.tab
