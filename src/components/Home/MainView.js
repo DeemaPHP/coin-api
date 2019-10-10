@@ -89,6 +89,7 @@ const MainView = props => {
           />
 
           <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
+          <p>Hi</p>
 
           <TagFilterTab tag={props.tag} />
         </ul>

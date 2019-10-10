@@ -56,13 +56,14 @@ class App extends React.Component {
             appName={this.props.appName}
             currentUser={this.props.currentUser}
           />
+          <h3>Nts</h3>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/editor/:slug" component={Editor} />
             <Route path="/editor" component={Editor} />
-            <Route path="/cryptocurrency/:id" component={Cryptocurrency} />
+            <Route path="/cryptocurrency/info/:id" component={Cryptocurrency} />
             <Route path="/settings" component={Settings} />
             <Route path="/@:username/favorites" component={ProfileFavorites} />
             <Route path="/@:username" component={Profile} />

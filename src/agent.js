@@ -21,13 +21,15 @@ const requests = {
   get: url =>
     superagent
       .get(`${API_ROOT}${url}`)
-      .set({ "X-CMC_PRO_API_KEY": tokenPlugin, Accept: "application/json" })
-      .set("Access-Control-Allow-Origin", "https://pro-api.coinmarketcap.com") // update to match the domain you will make the request from
+      .set("X-CMC_PRO_API_KEY", tokenPlugin)
+      .set("Accept", "application/json")
+      // .set("Origin", "")
+      .set("Access-Control-Allow-Origin", "*")
       .set(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
       )
-      .withCredentials()
+      // .withCredentials()
       .then(responseBody),
   put: (url, body) =>
     superagent
@@ -64,7 +66,7 @@ const omitSlug = cryptocurrency =>
   Object.assign({}, cryptocurrency, { slug: undefined });
 const Cryptocurrency = {
   // all: page => requests.get(`/cryptocurrency?${limit(10, page)}`),
-  all: page => requests.get(`/cryptocurrency/info`),
+  all: page => requests.get(`/cryptocurrency/info?id=1,1027`),
   listing: () => requests.get(`/cryptocurrency/listings/latest`),
   byAuthor: (author, page) =>
     requests.get(`/cryptocurrency?author=${encode(author)}&${limit(5, page)}`),
@@ -76,7 +78,7 @@ const Cryptocurrency = {
     requests.get(
       `/cryptocurrency?favorited=${encode(author)}&${limit(5, page)}`
     ),
-  feed: () => requests.get("/cryptocurrency/feed?limit=10&offset=0"),
+  feed: () => requests.get("/cryptocurrency/info?id=1"),
   get: slug => requests.get(`/cryptocurrency/${slug}`),
   unfavorite: slug => requests.del(`/cryptocurrency/${slug}/favorite`),
   update: cryptocurrency =>

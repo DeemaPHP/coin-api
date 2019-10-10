@@ -50,9 +50,9 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        tags: action.payload[0].tags,
-        cryptocurrency: action.payload[1].cryptocurrency,
-        cryptocurrencyCount: action.payload[1].cryptocurrencyCount,
+        tags: action.payload[0],
+        cryptocurrency: action.payload[1],
+        cryptocurrencyCount: action.payload[1],
         currentPage: 0,
         tab: action.tab
       };
@@ -73,8 +73,8 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        cryptocurrency: action.payload[1].cryptocurrency,
-        cryptocurrencyCount: action.payload[1].cryptocurrencyCount,
+        cryptocurrency: action.payload[1],
+        cryptocurrencyCount: action.payload[1],
         currentPage: 0
       };
     case PROFILE_PAGE_UNLOADED:

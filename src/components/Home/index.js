@@ -28,12 +28,12 @@ const mapDispatchToProps = dispatch => ({
 
 class Home extends React.Component {
   componentWillMount() {
-    // const tab = this.props.token ? "feed" : "all";
-    // const cryptocurrencyPromise = this.props.token
-    //   ? agent.Cryptocurrency.feed
-    //   : agent.Cryptocurrency.all;
-    const tab = "listing";
-    const cryptocurrencyPromise = agent.Cryptocurrency.listing;
+    const tab = this.props.token ? "feed" : "all";
+    const cryptocurrencyPromise = this.props.token
+      ? agent.Cryptocurrency.feed
+      : agent.Cryptocurrency.all;
+    // const tab = "listing";
+    // const cryptocurrencyPromise = agent.Cryptocurrency.listing;
 
     this.props.onLoad(
       tab,

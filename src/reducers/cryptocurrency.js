@@ -10,7 +10,7 @@ export default (state = {}, action) => {
     case CRYPTOCURRENCY_PAGE_LOADED:
       return {
         ...state,
-        cryptocurrency: action.payload[0].cryptocurrency,
+        cryptocurrency: action.payload[0],
         comments: action.payload[1].comments
       };
     case CRYPTOCURRENCY_PAGE_UNLOADED:
