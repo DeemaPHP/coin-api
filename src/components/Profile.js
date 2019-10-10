@@ -1,4 +1,4 @@
-import ArticleList from "./ArticleList";
+import CryptocurrencyList from "./CryptocurrencyList";
 import React from "react";
 import { Link } from "react-router-dom";
 import agent from "../agent";
@@ -154,7 +154,7 @@ class Profile extends React.Component {
             <div className="col-xs-12 col-md-10 offset-md-1">
               <div className="cryptocurrency-toggle">{this.renderTabs()}</div>
 
-              <ArticleList
+              <CryptocurrencyList
                 pager={this.props.pager}
                 cryptocurrency={this.props.cryptocurrency}
                 cryptocurrencyCount={this.props.cryptocurrencyCount}

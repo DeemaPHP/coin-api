@@ -1,4 +1,4 @@
-import ArticleMeta from "./ArticleMeta";
+import CryptocurrencyMeta from "./CryptocurrencyMeta";
 import CommentContainer from "./CommentContainer";
 import React from "react";
 import agent from "../../agent";
@@ -19,12 +19,12 @@ const mapDispatchToProps = dispatch => ({
   onUnload: () => dispatch({ type: CRYPTOCURRENCY_PAGE_UNLOADED })
 });
 
-class Article extends React.Component {
+class Cryptocurrency extends React.Component {
   componentWillMount() {
     this.props.onLoad(
       Promise.all([
         agent.Cryptocurrency.get(this.props.match.params.id),
-        agent.Comments.forArticle(this.props.match.params.id)
+        agent.Comments.forCryptocurrency(this.props.match.params.id)
       ])
     );
   }
@@ -50,7 +50,7 @@ class Article extends React.Component {
         <div className="banner">
           <div className="container">
             <h1>{this.props.cryptocurrency.title}</h1>
-            <ArticleMeta
+            <CryptocurrencyMeta
               cryptocurrency={this.props.cryptocurrency}
               canModify={canModify}
             />
@@ -95,4 +95,4 @@ class Article extends React.Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Article);
+)(Cryptocurrency);

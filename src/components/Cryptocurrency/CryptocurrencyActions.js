@@ -8,7 +8,7 @@ const mapDispatchToProps = dispatch => ({
   onClickDelete: payload => dispatch({ type: DELETE_CRYPTOCURRENCY, payload })
 });
 
-const ArticleActions = props => {
+const CryptocurrencyActions = props => {
   const cryptocurrency = props.cryptocurrency;
   const del = () => {
     props.onClickDelete(agent.Cryptocurrency.del(cryptocurrency.slug));
@@ -36,4 +36,4 @@ const ArticleActions = props => {
 export default connect(
   () => ({}),
   mapDispatchToProps
-)(ArticleActions);
+)(CryptocurrencyActions);

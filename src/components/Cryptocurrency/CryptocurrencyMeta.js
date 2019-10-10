@@ -1,13 +1,16 @@
-import ArticleActions from './ArticleActions';
-import { Link } from 'react-router-dom';
-import React from 'react';
+import CryptocurrencyActions from "./CryptocurrencyActions";
+import { Link } from "react-router-dom";
+import React from "react";
 
-const ArticleMeta = props => {
+const CryptocurrencyMeta = props => {
   const cryptocurrency = props.cryptocurrency;
   return (
     <div className="cryptocurrency-meta">
       <Link to={`/@${cryptocurrency.author.username}`}>
-        <img src={cryptocurrency.author.image} alt={cryptocurrency.author.username} />
+        <img
+          src={cryptocurrency.author.image}
+          alt={cryptocurrency.author.username}
+        />
       </Link>
 
       <div className="info">
@@ -19,9 +22,12 @@ const ArticleMeta = props => {
         </span>
       </div>
 
-      <ArticleActions canModify={props.canModify} cryptocurrency={cryptocurrency} />
+      <CryptocurrencyActions
+        canModify={props.canModify}
+        cryptocurrency={cryptocurrency}
+      />
     </div>
   );
 };
 
-export default ArticleMeta;
+export default CryptocurrencyMeta;

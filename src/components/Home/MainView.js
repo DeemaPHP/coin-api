@@ -1,4 +1,4 @@
-import ArticleList from "../ArticleList";
+import CryptocurrencyList from "../CryptocurrencyList";
 import React from "react";
 import agent from "../../agent";
 import { connect } from "react-redux";
@@ -94,7 +94,7 @@ const MainView = props => {
         </ul>
       </div>
 
-      <ArticleList
+      <CryptocurrencyList
         pager={props.pager}
         cryptocurrency={props.cryptocurrency}
         loading={props.loading}

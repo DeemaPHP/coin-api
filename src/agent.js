@@ -22,6 +22,12 @@ const requests = {
     superagent
       .get(`${API_ROOT}${url}`)
       .set({ "X-CMC_PRO_API_KEY": tokenPlugin, Accept: "application/json" })
+      .set("Access-Control-Allow-Origin", "https://pro-api.coinmarketcap.com") // update to match the domain you will make the request from
+      .set(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+      )
+      .withCredentials()
       .then(responseBody),
   put: (url, body) =>
     superagent
@@ -57,7 +63,8 @@ const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
 const omitSlug = cryptocurrency =>
   Object.assign({}, cryptocurrency, { slug: undefined });
 const Cryptocurrency = {
-  all: page => requests.get(`/cryptocurrency?${limit(10, page)}`),
+  // all: page => requests.get(`/cryptocurrency?${limit(10, page)}`),
+  all: page => requests.get(`/cryptocurrency/info`),
   listing: () => requests.get(`/cryptocurrency/listings/latest`),
   byAuthor: (author, page) =>
     requests.get(`/cryptocurrency?author=${encode(author)}&${limit(5, page)}`),
