@@ -1,9 +1,9 @@
 {
     "status": {
-        "timestamp": "2019-10-11T06:54:25.573Z",
+        "timestamp": "2019-10-11T09:43:10.991Z",
         "error_code": 0,
         "error_message": null,
-        "elapsed": 16,
+        "elapsed": 9,
         "credit_count": 1,
         "notice": null
     },
@@ -618,5 +618,4 @@
             "category": "coin"
         }
     }
-}
 }
