@@ -3,7 +3,6 @@ import _superagent from "superagent";
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-// const API_ROOT = "https://conduit.productionready.io/api";
 // const API_ROOT = "https://pro-api.coinmarketcap.com/v1";
 const API_ROOT = "/data";
 
@@ -67,7 +66,10 @@ const omitSlug = cryptocurrency =>
   Object.assign({}, cryptocurrency, { slug: undefined });
 const Cryptocurrency = {
   // all: page => requests.get(`/cryptocurrency?${limit(10, page)}`),
-  all: page => requests.get(`/cryptocurrency/info?id=1,1027`),
+  all: page =>
+    requests.get(
+      `/cryptocurrency/info?id=1,1027,52,825,1831,2,1765,1839,512,1958,2010,328,1720,131`
+    ),
   listing: () => requests.get(`/cryptocurrency/listings/latest`),
   byAuthor: (author, page) =>
     requests.get(`/cryptocurrency?author=${encode(author)}&${limit(5, page)}`),
@@ -80,7 +82,10 @@ const Cryptocurrency = {
       `/cryptocurrency?favorited=${encode(author)}&${limit(5, page)}`
     ),
   feed: () => requests.get("/cryptocurrency/info?id=1"),
-  get: slug => requests.get(`/cryptocurrency/listings/latest`),
+  get: slug =>
+    requests.get(
+      `/cryptocurrency/info?id=1,1027,52,825,1831,2,1765,1839,512,1958,2010,328,1720,131`
+    ),
   unfavorite: slug => requests.del(`/cryptocurrency/${slug}/favorite`),
   update: cryptocurrency =>
     requests.put(`/cryptocurrency/${cryptocurrency.slug}`, {

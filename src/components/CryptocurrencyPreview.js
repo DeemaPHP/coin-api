@@ -63,13 +63,10 @@ const ArticlePreview = props => {
         </div> */}
       </div>
 
-      <Link
-        to={`/cryptocurrency/${cryptocurrency.slug}`}
-        className="preview-link"
-      >
+      <Link to={`${cryptocurrency.urls.website[0]}`} className="preview-link">
         <h2>{cryptocurrency.name}</h2>
         <p>{cryptocurrency.description}</p>
-        <span>Read more...</span>
+
         {/* <ul className="tag-list">
           {cryptocurrency.tagList.map(tag => {
             return (
@@ -80,6 +77,12 @@ const ArticlePreview = props => {
           })}
         </ul> */}
       </Link>
+      <span>
+        Site -{" "}
+        <a href={cryptocurrency.urls.website[0]}>
+          {cryptocurrency.urls.website[0]}
+        </a>
+      </span>
     </div>
   );
 };
