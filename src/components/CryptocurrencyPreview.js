@@ -43,9 +43,12 @@ const ArticlePreview = props => {
   return (
     <div className="article-preview">
       <div className="article-meta">
-        <Link to={`/@${cryptocurrency.name}`}>
+        <a href={cryptocurrency.urls.website[0]}>
           <img src={cryptocurrency.logo} alt={cryptocurrency.slug} />
-        </Link>
+        </a>
+        {/* <Link to={`/@${cryptocurrency.name}`}>
+          <img src={cryptocurrency.logo} alt={cryptocurrency.slug} />
+        </Link> */}
 
         {/* <div className="info">
           <Link className="website" to={`${cryptocurrency.urls}`}>

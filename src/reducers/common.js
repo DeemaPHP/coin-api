@@ -18,7 +18,7 @@ import {
 } from "../constants/actionTypes";
 
 const defaultState = {
-  appName: "CoinMarketCap",
+  appName: "react-demo.itera-research",
   token: null,
   viewChangeCounter: 0
 };
